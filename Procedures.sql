@@ -76,7 +76,7 @@ CREATE PROCEDURE CrearUsuario_SP(
             Categoria,
             Descripcion,
             Imagen,
-			FechaCrea,
+			FechDeCrea,
             Autor
 		)
 		VALUES
@@ -130,8 +130,8 @@ CREATE PROCEDURE CrearUsuario_SP(
      DELIMITER $$
     
     CREATE PROCEDURE  Link_RespPreg_SP(
-	IN IDPregP INT,
-    IN IDRespP INT
+	 IN IDRespP INT,
+    IN IDPregP INT
     )
     BEGIN
      INSERT INTO resp_preg
@@ -161,7 +161,6 @@ CREATE PROCEDURE CrearUsuario_SP(
 		INSERT INTO respuesta
         (
 			Respuesta,
-            Imagen,
             Correcta,
 			Autor
 		)
