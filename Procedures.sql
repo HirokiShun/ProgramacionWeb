@@ -5,7 +5,7 @@ CREATE PROCEDURE CrearUsuario_SP(
 	IN ApellidosP VARCHAR(50), 
 	IN FNaP DATE, 
 	IN CorreoEP VARCHAR(30), 
-    IN ImgPerfP BLOB,
+    IN ImgPerfilP BLOB,
 	IN NomUP VARCHAR(30),
 	IN PassP VARCHAR(30),
     IN FRegP DATE
@@ -20,8 +20,7 @@ CREATE PROCEDURE CrearUsuario_SP(
             CorreoElec,
             NomUsuario,
             Contraseña,
-            FechaReg,
-            Estado
+            FechaReg
 		)
 		VALUES
 			(
@@ -31,8 +30,7 @@ CREATE PROCEDURE CrearUsuario_SP(
                 CorreoEP,
                 NomUP,
                 PassP,
-                FRegP,
-                1
+                FRegP
 			);
 		ELSE 
 			INSERT INTO usuarios
@@ -110,6 +108,22 @@ CREATE PROCEDURE CrearUsuario_SP(
                 AutorP
 			);
         END IF;
+    END$$
+    DELIMITER ;
+    #-------------------------------------------------------------------------------------------------------------------------------------------    
+    DELIMITER $$
+    CREATE PROCEDURE AgregCat_SP(
+	IN CategoriaP VARCHAR(50) 
+    )
+    BEGIN
+		INSERT INTO categorias
+        (
+			Categoria
+		)
+		VALUES
+			(
+				CategoriaP
+			);
     END$$
     DELIMITER ;
 #------------------------------------------------------------------------------------------------------------------------------------------- 

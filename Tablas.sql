@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS Usuarios
         NomUsuario VARCHAR(30),
         Contraseña VARCHAR(30),
         FechaReg DATE,
-        Estado TINYINT
+        Estado TINYINT DEFAULT 1
 	);
     
     CREATE TABLE IF NOT EXISTS Categorias
@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS Pregunta
         Descripcion VARCHAR(200),
         Imagen BLOB,
         FechDeCrea DATE,
-        Autor INT UNSIGNED,
+        Autor INT UNSIGNED NOT NULL,
+        Estado TINYINT DEFAULT 1,
         FOREIGN KEY(Categoria) REFERENCES Categorias(ID),
         FOREIGN KEY(Autor) REFERENCES Usuarios(ID)
 	);
@@ -40,8 +41,9 @@ CREATE TABLE IF NOT EXISTS Respuesta
         Respuesta VARCHAR(500),
         Imagen BLOB,
         Correcta TINYINT,
-        Autor INT UNSIGNED,
-        Votos INT,
+        Autor INT UNSIGNED NOT NULL,
+        Votos INT DEFAULT 0,
+        Estado TINYINT DEFAULT 1,
         FOREIGN KEY(Autor) REFERENCES Usuarios(ID)
     );
 
