@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="" antiResourceLocking="false" privileged="true">
+    <Resource name="jdbc/5taProgWeb"
+    auth="Container"
+    type="javax.sql.DataSource"
+    username="root"
+    passwoerd="root"
+    driverClassName="com.mysqk.cj.jdbc.Driver"
+    url="jdbc:mysql:localhost:3306/5taProgWeb?serverTimezone=America/Monterrey">
+    </Resource>
+</Context>

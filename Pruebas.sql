@@ -3,7 +3,11 @@ CALL CrearUsuario_SP('Martin','Lopez','1997-08-16','MarLop@gmail.com',NULL,'ElMa
 CALL CrearUsuario_SP('Ruben','Juarez','1999-01-06','Elpro99@gmail.com',NULL,'ProMaster99','1234',CURDATE());
 SELECT * FROM usuarios;
 
-CALL AgregCat_SP('Animalitos');
+CALL AgregCat_SP('Juegos');
+CALL AgregCat_SP('Musica');
+CALL AgregCat_SP('Reporte de bug');
+CALL AgregCat_SP('Actualizacion');
+CALL AgregCat_SP('Duda General');
 SELECT * FROM categorias;
 
 CALL Preguntar_SP('¿Que sonido hacen las vacas?',1,'como se le dice al "MUU" de las vacas',NULL,CURDATE(),1);
@@ -30,5 +34,9 @@ SELECT * FROM respuesta;
 
 CALL BanUs_SP(3);
 SELECT * FROM usuarios;
+
+Call GetQuestions_SP();
+
+call GetQuestions_SP()
 
 #los procedures: SubImgUS, SubImgPreg y SubImgResp, aun no se pueden probar, ya que aun no se como manejar el tipo de dato BLOB

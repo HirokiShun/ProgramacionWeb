@@ -286,3 +286,95 @@ CREATE PROCEDURE CrearUsuario_SP(
 			WHERE ID = IDPreg;
         END$$
 	DELIMITER ; 
+    
+#-------------------------------------------------------------------------------------------------------------------------------------------
+  DELIMITER $$
+    CREATE PROCEDURE GetAnswerByID(
+		IN AnswID INT
+    )
+BEGIN
+		SELECT 
+		respuesta.Respuesta, respuesta.Imagen, respuesta.Correcta, respuesta.Votos, respuesta.Autor, respuesta.Estado
+		FROM 
+		respuesta
+		WHERE 
+		respuesta.Estado=1;
+    END$$
+    DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  CREATE PROCEDURE GetQuestions_SP()
+BEGIN
+		 SELECT 
+		pregunta.ID, pregunta.Titulo, pregunta.Autor, pregunta.Categoria, pregunta.Descripcion, pregunta.FechDeCrea, pregunta.Imagen
+		FROM 
+		pregunta
+		WHERE 
+		pregunta.Estado=1;
+    END$$
+DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  CREATE PROCEDURE GetAnswers_SP()
+BEGIN 
+		SELECT 
+		respuesta.ID, respuesta.Respuesta, respuesta.Imagen, respuesta.Correcta, respuesta.Votos, respuesta.Autor, respuesta.Estado
+		FROM 
+		respuesta
+		WHERE 
+		respuesta.Estado=1;
+    END
+DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  CREATE PROCEDURE GetCategories_SP()
+BEGIN
+	SELECT categorias.ID,categorias.Categoria FROM categorias;
+END
+DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  CREATE PROCEDURE GetQuestByID(
+		IN QuestID INT
+    )
+BEGIN
+        SELECT 
+		pregunta.ID, pregunta.Titulo, pregunta.Autor, pregunta.Categoria, pregunta.Descripcion, pregunta.FechDeCrea, pregunta.Imagen
+		FROM 
+		pregunta
+		WHERE 
+		pregunta.ID=QuestID;
+END$$
+DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  CREATE PROCEDURE ValidateUser_SP(
+		IN NUser VARCHAR(30),
+        IN PassW VARCHAR(30)
+    )
+BEGIN
+		SELECT NomUsuario, Contraseña 
+        FROM usuarios
+		WHERE NomUsuario = NUser AND Contraseña = PassW;
+    END
+DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  CREATE PROCEDURE GetUserByID(
+		IN UsrID INT
+    )
+BEGIN
+		SELECT ID, Nombre, Apellidos, FechaNac, CorreoElec, ImgPerfil, NomUsuario, Contraseña, FechaReg, Estado
+		FROM usuarios
+		WHERE ID= UsrID;
+    END
+DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  
+DELIMITER ;
+#-------------------------------------------------------------------------------------------------------------------------------------------
+DELIMITER $$
+  
+DELIMITER ;
+    
